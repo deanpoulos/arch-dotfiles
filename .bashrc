@@ -36,6 +36,7 @@ SMALL="\x1B[8;24;80t";
  WIDE="\x1B[8;24;132t";
 
 alias vim="sudo -E vim"    
+alias ls="ls -A"
 
 export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~ 
 export PS1+="$ACCENT\d $BASE$"                      # Mon May 28 $> 
@@ -65,7 +66,7 @@ conf    () {
     if      [ $1 = bash ];      then vim ~/.bashrc; source ~/.bashrc;
     elif    [ $1 = vim ];       then vim ~/.vimrc
     elif    [ $1 = i3 ];        then vim ~/.config/i3/config
-    elif    [ $1 = i3status ];  then vim /etc/i3status.config
+    elif    [ $1 = i3status ];  then vim /etc/i3status.conf
     elif    [ $1 = compton ];   then vim /etc/xdg/compton.conf
     else    echo -e "Please enter the name of a valid service to configure"
     fi
