@@ -1,9 +1,8 @@
 #=============================================================================#
-#                       i3 configuration - by dean poulos                     #
+#       i3 configuration - by dean poulos (dean.poulos7@protonmail.com)       #
 #=============================================================================#
 # services include:                                                           #  
 # - boots with four workspaces, terminals, browsing, file managing, music     #
-# - configures unfocused windows to be 85% opaque, revealing background       #
 # - renames four target workspaces with sleek icons                           #
 # - provides an 'always floating' workspace, $ws4 for all floating apps       #
 # - customised i3lock to match GTK theme                                      #

@@ -1,5 +1,5 @@
 #=============================================================================#
-#                     shell configuration - by dean poulos                    #
+#      shell configuration - by dean poulos (dean.poulos7@protonmail.com)     #
 #=============================================================================#
 # services include:                                                           #  
 # - message of the day:     prints computer's specs         motd, cl          #

@@ -1,5 +1,5 @@
 "============================================================================="
-"                       vim configuration - by dean poulos                    "
+"       vim configuration - by dean poulos (dean.poulos7@protonmail.com)      "
 "============================================================================="
 " services include:                                                           "  
 " - syntax highlighting using PaperColor                                      "
