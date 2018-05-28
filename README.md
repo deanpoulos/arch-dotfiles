@@ -18,3 +18,9 @@ commands:
 
 And obviously change conf() function entries accordingly.
 
+Screenshots:
+![ws1](https://user-images.githubusercontent.com/38335668/40621421-0514d8ea-62e0-11e8-9d54-d8510e6bcf16.jpg)
+![ws2](https://user-images.githubusercontent.com/38335668/40621425-0694919c-62e0-11e8-86b7-ad1428847f51.jpg)
+![ws4](https://user-images.githubusercontent.com/38335668/40621427-0881506c-62e0-11e8-87ca-ec4575b28b6b.jpg)
+![ws10](https://user-images.githubusercontent.com/38335668/40621432-0a44328e-62e0-11e8-9816-040ac434a321.jpg)
+
