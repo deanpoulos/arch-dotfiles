@@ -1,23 +1,11 @@
-# My various configuration files
-
-Author:     Dean Poulos\n
-Platform:   Linux (Arch)
-
-Files:
- - .bashrc
- - .vimrc  
- - i3 config 
- - compton config
- - i3status config
-
+# configs
 
 Configuration files created as an accessory to the following tools:
-
- - Any terminal emulator (gnome-terminal, xterm)
- - Vim (text editor)
- - i3 (window manager)
- - i3status (supplement monitor bar for i3)
- - compton (animation handler for i3)
+ - .bashrc (many terminal emulators, i.e. gnome-terminal, xterm)
+ - .vimrc  (vim text editor)
+ - i3 config (window manager)
+ - compton config (animation handler for i3)
+ - i3status config (supplementary monitor bar for i3(
 
 For an outline of prerequisite software, see internal documentation before use.
 Backup pre-existing configuration files before using these.
