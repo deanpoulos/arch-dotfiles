@@ -1,6 +1,6 @@
 # configs
 
-Configuration files created as an accessory to the following tools:
+Configuration files created as accessories to various tools:
  - .bashrc (many terminal emulators, i.e. gnome-terminal, xterm)
  - .vimrc  (vim text editor)
  - i3 config (window manager)
