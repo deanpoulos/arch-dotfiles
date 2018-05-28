@@ -1,8 +1,16 @@
 # My various configuration files
 
 Author:     Dean Poulos
-Platform:   Linux
-Files:      .bashrc, .vimrc, i3 config, compton config, i3status config
+
+Platform:   Linux (Arch)
+
+Files:
+ - .bashrc
+ - .vimrc  
+ - i3 config 
+ - compton config
+ - i3status config
+
 
 Configuration files created as an accessory to the following tools:
 
