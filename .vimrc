@@ -1,9 +1,23 @@
-""" standard colour options
+"============================================================================="
+"                       vim configuration - by dean poulos                    "
+"============================================================================="
+" services include:                                                           "  
+" - syntax highlighting using PaperColor                                      "
+" - tabstopping at 4 spaces                                                   "
+" - automatic text wrapping at 80 spaces                                      "
+" - editor search highlighting                                                "
+" - word processor mode function with spellchecking                           "
+"============================================================================="
+" prerequisites:                                                              "
+" - PaperColor theme: https://github.com/NLKNguyen/papercolor-theme           "
+"============================================================================="
+
+" standard colour options
 syntax enable
 set background=dark
 colorscheme PaperColor
 
-""" document formatting
+" document formatting
 set expandtab
 set tabstop=4
 set softtabstop=4
@@ -12,7 +26,7 @@ set autoindent
 set textwidth=80
 set hls is
 
-""" word processor hack
+" word processor hack
 func! WordProcessorMode()
  setlocal textwidth=80
  setlocal smartindent
@@ -22,12 +36,3 @@ endfu
 com! WP call WordProcessorMode()
 
 filetype plugin indent on
-
-""" solarized specific stuff
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans = 0 
-" let g:solarized_degrade = 0 
-" let g:solarized_bold = 1 
-" let g:solarized_underline = 0 
-" let g:solarized_italic = 0 
-" colorscheme solarized

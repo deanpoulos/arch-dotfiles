@@ -21,7 +21,8 @@
 # - gnome-terminal          https://en.wikipedia.org/wiki/GNOME_Terminal      #
 #=============================================================================#
 
-set $mod Mod1   # Use Mod1 (Left-Alt) over Mod4 (Windows-Key)
+# Use Mod1 (Left-Alt) over Mod4 (Windows-Key)
+set $mod Mod1   
 
 # Font for window titles. Will also be used by the bar unless a different font
 font pango:Source 8
