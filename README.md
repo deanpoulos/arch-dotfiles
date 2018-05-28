@@ -1,4 +1,4 @@
-# configs
+# My various configuration files
 
 Author:     Dean Poulos
 Platform:   Linux
