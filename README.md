@@ -15,5 +15,6 @@ their potential directories. If they do not exist there, use the following
 commands:
  - cd /
  - sudo find | grep compton.conf
+
 And obviously change conf() function entries accordingly.
 
