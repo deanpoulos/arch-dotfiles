@@ -17,11 +17,6 @@
 #                           assumes directory /cse exists for mounting        #    
 #=============================================================================#
 
-# $CSEDIR is defined with an argument at the end for use with ssh
-COMP="/cse/COMP1521"
-CSEDIR="z5122508@cse.unsw.edu.au:/import/kamen/2/z5122508 /cse"
-CSEADD="z5122508@login.cse.unsw.edu.au"
-
 # Define colour scheme & formatting options (PS1-friendly & echo-friendly)
   BASE="\[\e[00;38;5;132m\]";   EBASE="\e[00;38;5;132m";  
  LBASE="\[\e[00;38;5;175m\]";  ELBASE="\e[00;38;5;175m";
@@ -74,6 +69,15 @@ conf    () {
 
 shell   () { ssh -X $CSEADD  && clear; }
 
+#=============================================================================#
+#   Personal commands                                                         #
+#=============================================================================#
+
+# $CSEDIR is defined with an argument at the end for use with ssh
+COMP="/cse/COMP1521"
+CSEDIR="z5122508@cse.unsw.edu.au:/import/kamen/2/z5122508 /cse"
+CSEADD="z5122508@login.cse.unsw.edu.au"
+
 cse     () { 
     # probe /cse/* directory for existing instances of a mount 
     # if failed, sshfs not mounted, so mount $CSEDIR drive from server to /cse
@@ -84,3 +88,5 @@ cse     () {
             || { umount -l /cse; cse; } \
     } && cd /cse;   
 }
+
+gh      () { cd ~/GitHub/configs; }
