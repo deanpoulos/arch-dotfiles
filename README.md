@@ -1,7 +1,6 @@
 # My various configuration files
 
-Author:     Dean Poulos
-
+Author:     Dean Poulos\n
 Platform:   Linux (Arch)
 
 Files:
