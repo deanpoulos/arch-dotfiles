@@ -1,4 +1,4 @@
-# configs
+# Contents
 
 Configuration files created as accessories to various tools:
  - .bashrc (many terminal emulators, i.e. gnome-terminal, xterm)
@@ -10,6 +10,8 @@ Configuration files created as accessories to various tools:
 For an outline of prerequisite software, see internal documentation before use.
 Backup pre-existing configuration files before using these.
 
+# Installation
+
 For correct placement of these files, see .bashrc's conf() function, which lists
 their potential directories. If they do not exist there, use the following
 commands:
@@ -17,6 +19,14 @@ commands:
  - sudo find | grep compton.conf
 
 And obviously change conf() function entries accordingly.
+
+I recommend creating hard links from a clone of this git repo if you'd like your
+configuration to be identical to mine:
+ - ln /git/repo/.bashrc ~/.bashrc
+
+ This way your ~ directory has a file .bashrc which points to an inode also
+ pointed to by git. this means you can place each config file in their
+ respective directories and update all at once.
 
 Screenshots:
 ![ws1](https://user-images.githubusercontent.com/38335668/40662198-009f5830-6399-11e8-95f6-573535e5bc6a.jpg)
