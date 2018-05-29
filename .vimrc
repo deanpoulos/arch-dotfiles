@@ -7,10 +7,17 @@
 " - automatic text wrapping at 80 spaces                                      "
 " - editor search highlighting                                                "
 " - word processor mode function with spellchecking                           "
+" - pathogen plugin/runtime path handler                                      "
+" - relative line number                                                      "
 "============================================================================="
 " prerequisites:                                                              "
 " - PaperColor theme: https://github.com/NLKNguyen/papercolor-theme           "
+" - Pathogen:         https://github.com/tpope/vim-pathogen                   "
 "============================================================================="
+
+" plugins
+execute pathogen#infect()
+filetype plugin indent on
 
 " standard colour options
 syntax enable
@@ -24,7 +31,7 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 set textwidth=80
-set hls is
+set relativenumber
 
 " word processor hack
 func! WordProcessorMode()
@@ -35,4 +42,5 @@ func! WordProcessorMode()
 endfu
 com! WP call WordProcessorMode()
 
-filetype plugin indent on
+" hardmode
+call HardMode()
