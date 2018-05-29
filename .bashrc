@@ -11,17 +11,17 @@
 # - directory traversal:    traverse lab/assignment dirs    w <#>, ass, g2    #
 #=============================================================================#
 # prerequisites:                                                              #
-# - neofetch:               used to print hardware/software specs in `motd`   # 
+# - screenfetch:               used to print hardware/software specs in `motd`# 
 # - x86_64-w64-mingw32-gcc: used for compiling c as a .exe file in `xcompile` #
 # - ssh & sshfs:            used for mounting cse account locally in `cse`    #
 #                           assumes directory /cse exists for mounting        #    
 #=============================================================================#
 
 # Define colour scheme & formatting options (PS1-friendly & echo-friendly)
-  BASE="\[\e[00;38;5;132m\]";   EBASE="\e[00;38;5;132m";  
- LBASE="\[\e[00;38;5;175m\]";  ELBASE="\e[00;38;5;175m";
+  BASE="\[\e[00;38;5;163m\]";   EBASE="\e[00;38;5;163m";  
+ LBASE="\[\e[00;38;5;169m\]";  ELBASE="\e[00;38;5;169m";
 ACCENT="\[\e[00;38;5;247m\]"; EACCENT="\e[00;38;5;247m"; 
-  ROOT="\[\e[00;38;5;224m\]";   EROOT="\e[00;38;5;224m";
+  ROOT="\[\e[00;38;5;218m\]";   EROOT="\e[00;38;5;218m";
  CLEAR="\[\e[m\]";             ECLEAR="\e[m";
                                EERROR="\e[91;01m";
 
@@ -37,10 +37,10 @@ export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~
 export PS1+="$ACCENT\d $BASE$"                      # Mon May 28 $> 
 export PS1+="$LBASE>$CLEAR "   
 
-motd    () { clear; echo -e "\n"; neofetch; }; motd; # print motd with neofetch 
+motd    () { clear; echo -e "\n"; screenfetch; }; motd; # motd with screenfetch 
 
-compile  () { gcc -ggdb -Wall -Werror -O -std=c99 -o "$1" "$2"; }
-xcompile () { x86_64-w64-mingw32-gcc -Wall -Werror -O -std=c99 -o "$1" "$2"; }
+compile () { gcc -ggdb -Wall -Werror -O -std=c99 -o "$1" "$2"; }
+xcompile() { x86_64-w64-mingw32-gcc -Wall -Werror -O -std=c99 -o "$1" "$2"; }
 
 w       () { cse; cd $COMP/labs/week$1; }
 ass     () { cse; cd $COMP/assignments; }
@@ -71,7 +71,7 @@ conf    () {
 shell   () { ssh -X $CSEADD  && clear; }
 
 #=============================================================================#
-# personal commands                                                           #
+# personal commands: feel free to comment this part out unless applicable     #
 #=============================================================================#
 
 # $CSEDIR is defined with an argument at the end for use with ssh
