@@ -25,7 +25,7 @@ configuration to be identical to mine:
  - ln /git/repo/.bashrc ~/.bashrc
 
  This way your ~ directory has a file .bashrc which points to an inode also
- pointed to by git. this means you can place each config file in their
+ pointed to by git. This means you can place each config file in their
  respective directories and update all at once.
 
 Screenshots:
