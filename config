@@ -205,7 +205,7 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Auto load Applications
 exec gnome-terminal 
-exec gnome-terminal -e 'cmatrix -b -C cyan'
+exec gnome-terminal -e 'cmatrix -bC cyan'
 
 exec firefox
 assign [class="Firefox"] $ws2
