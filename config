@@ -2,7 +2,7 @@
 #       i3 configuration - by dean poulos (dean.poulos7@protonmail.com)       #
 #=============================================================================#
 # services include:                                                           #  
-# - boots with four workspaces, terminals, browsing, file managing, music     #
+# - boots with five workspaces, terminals, browsing, files, email, music      #
 # - renames four target workspaces with sleek icons                           #
 # - provides an 'always floating' workspace, $ws4 for all floating apps       #
 # - customised i3lock to match GTK theme                                      #
@@ -97,13 +97,13 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1  "
 set $ws2 "2  "
-set $ws3 "3"
+set $ws3 "3 "
 set $ws4 "4  "
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
 set $ws10 "10   "
 
 # switch to workspace
@@ -203,7 +203,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
-# Autoload Applications
+# Auto load Applications
 exec gnome-terminal 
 exec gnome-terminal -e 'cmatrix -b -C cyan'
 
@@ -214,6 +214,9 @@ exec nautilus
 assign [class="Nautilus"] $ws4
 for_window [class="Nautilus"] floating toggle
 for_window [workspace="4"] floating enable
+
+exec thunderbird
+assign [class="Thunderbird"] $ws9
 
 exec spotify
 for_window [class="Spotify"] move to workspace $ws10
