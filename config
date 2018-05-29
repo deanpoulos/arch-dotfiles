@@ -215,8 +215,8 @@ assign [class="Nautilus"] $ws4
 for_window [class="Nautilus"] floating toggle
 for_window [workspace="4"] floating enable
 
-exec thunderbird
-assign [class="Thunderbird"] $ws9
+# exec thunderbird
+# assign [class="Thunderbird"] $ws9
 
 exec spotify
 for_window [class="Spotify"] move to workspace $ws10

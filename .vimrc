@@ -7,16 +7,25 @@
 " - automatic text wrapping at 80 spaces                                      "
 " - editor search highlighting                                                "
 " - word processor mode function with spellchecking                           "
-" - pathogen plugin/runtime path handler                                      "
+" - vundle plugin/runtime path handler                                        "
 " - relative line number                                                      "
 "============================================================================="
 " prerequisites:                                                              "
 " - PaperColor theme: https://github.com/NLKNguyen/papercolor-theme           "
-" - Pathogen:         https://github.com/tpope/vim-pathogen                   "
+" - Vundle:           https://github.com/VundleVim                            "
+" - HardMode:         https://github.com/wikitopian/hardmode                  "
 "============================================================================="
 
 " plugins
-execute pathogen#infect()
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'hardmode'
+call vundle#end()
+
 filetype plugin indent on
 
 " standard colour options
@@ -43,4 +52,5 @@ endfu
 com! WP call WordProcessorMode()
 
 " hardmode
-call HardMode()
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
