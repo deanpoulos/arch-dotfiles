@@ -23,6 +23,7 @@
 ACCENT="\[\e[00;38;5;247m\]"; EACCENT="\e[00;38;5;247m"; 
   ROOT="\[\e[00;38;5;224m\]";   EROOT="\e[00;38;5;224m";
  CLEAR="\[\e[m\]";             ECLEAR="\e[m";
+                               EERROR="\e[91;01m";
 
 # Terminal sizing escape sequences
   BIG="\x1B[8;43;132t";       
@@ -30,7 +31,7 @@ SMALL="\x1B[8;24;80t";
  TALL="\x1B[8;43;80t";         
  WIDE="\x1B[8;24;132t";
 
-alias vim="sudo -E vim"    
+# alias vim="sudo -E vim"    
 
 export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~ 
 export PS1+="$ACCENT\d $BASE$"                      # Mon May 28 $> 
@@ -52,7 +53,7 @@ tsize   () {
     elif    [ $1 = small ]; then echo -e $SMALL;    cl;
     elif    [ $1 = tall ];  then echo -e $TALL;     cl;
     elif    [ $1 = wide ];  then echo -e $WIDE;     cl;
-    else    echo -e "Please enter a valid terminal size"
+    else    echo -e $EERROR"Please enter a valid terminal size"$ECLEAR
     fi
 }
 
@@ -63,7 +64,7 @@ conf    () {
     elif    [ $1 = i3status ];  then vim /etc/i3status.conf
     elif    [ $1 = compton ];   then vim /etc/xdg/compton.conf
     elif    [ $1 = pacman ];    then vim /etc/pacman.conf
-    else    echo -e "Please enter the name of a valid service to configure"
+    else    echo -e $EERROR"Please enter the name of a valid service"$ECLEAR
     fi
 }
 
@@ -92,5 +93,6 @@ cse     () {
 g2      () { 
     if      [ $1 = gh ];    then cd ~/GitHub/configs; 
     elif    [ $1 = dl ];    then cd ~/Downloads;
+    elif    [ $1 = pg ];    then cd ~/Programs;
     fi
 }
