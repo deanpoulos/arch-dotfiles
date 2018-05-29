@@ -5,7 +5,6 @@
 " - syntax highlighting using PaperColor                                      "
 " - tabstopping at 4 spaces                                                   "
 " - automatic text wrapping at 80 spaces                                      "
-" - editor search highlighting                                                "
 " - word processor mode function with spellchecking                           "
 " - vundle plugin/runtime path handler                                        "
 " - relative line number                                                      "
@@ -20,13 +19,22 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-
+ 
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'hardmode'
+    Plugin 'fzf.vim'
+    Plugin 'vim-surround'
 call vundle#end()
 
 filetype plugin indent on
+
+" hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" create new line under cursor in normal mode
+nmap <S-Enter> O<Esc>
 
 " standard colour options
 syntax enable
@@ -41,7 +49,7 @@ set shiftwidth=4
 set autoindent
 set textwidth=80
 set relativenumber
-
+ 
 " word processor hack
 func! WordProcessorMode()
  setlocal textwidth=80
@@ -50,7 +58,3 @@ func! WordProcessorMode()
  setlocal noexpandtab
 endfu
 com! WP call WordProcessorMode()
-
-" hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
