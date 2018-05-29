@@ -8,7 +8,7 @@
 # - gnome-term sizing:      change size of floating term    tsize <size>      #  
 # - cse server access:      mount cse drive to local fs     cse, shell        #  
 # - compilation:            compile c for windows and linux compile, xcompile #
-# - directory traversal:    traverse lab/assignment dirs    w <#>, ass        #
+# - directory traversal:    traverse lab/assignment dirs    w <#>, ass, g2    #
 #=============================================================================#
 # prerequisites:                                                              #
 # - neofetch:               used to print hardware/software specs in `motd`   # 
@@ -31,7 +31,6 @@ SMALL="\x1B[8;24;80t";
  WIDE="\x1B[8;24;132t";
 
 alias vim="sudo -E vim"    
-alias ls="ls -A"
 
 export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~ 
 export PS1+="$ACCENT\d $BASE$"                      # Mon May 28 $> 
@@ -63,6 +62,7 @@ conf    () {
     elif    [ $1 = i3 ];        then vim ~/.config/i3/config
     elif    [ $1 = i3status ];  then vim /etc/i3status.conf
     elif    [ $1 = compton ];   then vim /etc/xdg/compton.conf
+    elif    [ $1 = pacman ];    then vim /etc/pacman.conf
     else    echo -e "Please enter the name of a valid service to configure"
     fi
 }
@@ -70,7 +70,7 @@ conf    () {
 shell   () { ssh -X $CSEADD  && clear; }
 
 #=============================================================================#
-#   Personal commands                                                         #
+# personal commands                                                           #
 #=============================================================================#
 
 # $CSEDIR is defined with an argument at the end for use with ssh
@@ -89,4 +89,8 @@ cse     () {
     } && cd /cse;   
 }
 
-gh      () { cd ~/GitHub/configs; }
+g2      () { 
+    if      [ $1 = gh ];    then cd ~/GitHub/configs; 
+    elif    [ $1 = dl ];    then cd ~/Downloads;
+    fi
+}
