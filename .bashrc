@@ -11,7 +11,7 @@
 # - directory traversal:    traverse lab/assignment dirs    w <#>, ass, g2    #
 #=============================================================================#
 # prerequisites:                                                              #
-# - screenfetch:               used to print hardware/software specs in `motd`# 
+# - screenfetch:            used to print hardware/software specs in `motd`   # 
 # - x86_64-w64-mingw32-gcc: used for compiling c as a .exe file in `xcompile` #
 # - ssh & sshfs:            used for mounting cse account locally in `cse`    #
 #                           assumes directory /cse exists for mounting        #    
@@ -31,13 +31,13 @@ SMALL="\x1B[8;24;80t";
  TALL="\x1B[8;43;80t";         
  WIDE="\x1B[8;24;132t";
 
-# alias vim="sudo -E vim"    
+alias vim="sudo -E vim"    
 
 export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~ 
 export PS1+="$ACCENT\d $BASE$"                      # Mon May 28 $> 
 export PS1+="$LBASE>$CLEAR "   
 
-motd    () { clear; echo -e "\n"; screenfetch; }; motd; # motd with screenfetch 
+motd    () { clear; screenfetch; }; motd; # motd with screenfetch 
 
 compile () { gcc -ggdb -Wall -Werror -O -std=c99 -o "$1" "$2"; }
 xcompile() { x86_64-w64-mingw32-gcc -Wall -Werror -O -std=c99 -o "$1" "$2"; }

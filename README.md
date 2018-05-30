@@ -28,7 +28,7 @@ configuration to be identical to mine:
  pointed to by git. This means you can place each config file in their
  respective directories and update all at once.
 
-Screenshots:
+# Screenshots:
 ![ws1](https://user-images.githubusercontent.com/38335668/40662198-009f5830-6399-11e8-95f6-573535e5bc6a.jpg)
 ![ws2](https://user-images.githubusercontent.com/38335668/40621425-0694919c-62e0-11e8-86b7-ad1428847f51.jpg)
 ![ws4](https://user-images.githubusercontent.com/38335668/40621427-0881506c-62e0-11e8-87ca-ec4575b28b6b.jpg)
