@@ -164,6 +164,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+hide_edge_borders both
+
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -204,7 +206,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Auto load Applications
-exec gnome-terminal 
+exec gnome-terminal -e 'sup.sh' 
 exec gnome-terminal -e 'cmatrix -bC cyan'
 
 exec firefox

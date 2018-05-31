@@ -30,7 +30,7 @@ configuration to be identical to mine:
 
 # Screenshots:
 ![ws1](https://user-images.githubusercontent.com/38335668/40662198-009f5830-6399-11e8-95f6-573535e5bc6a.jpg)
-![ws2](https://user-images.githubusercontent.com/38335668/40621425-0694919c-62e0-11e8-86b7-ad1428847f51.jpg)
+![ws2](https://user-images.githubusercontent.com/38335668/40761340-84b32854-64de-11e8-81eb-c31024632cb5.jpg)
 ![ws4](https://user-images.githubusercontent.com/38335668/40621427-0881506c-62e0-11e8-87ca-ec4575b28b6b.jpg)
 ![ws10](https://user-images.githubusercontent.com/38335668/40621432-0a44328e-62e0-11e8-9816-040ac434a321.jpg)
 
