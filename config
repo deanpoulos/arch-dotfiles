@@ -2,12 +2,13 @@
 #       i3 configuration - by dean poulos (dean.poulos7@protonmail.com)       #
 #=============================================================================#
 # services include:                                                           #  
-# - boots with five workspaces, terminals, browsing, files, email, music      #
+# - boots with four workspaces, terminals, browsing, files, music             #
 # - renames four target workspaces with sleek icons                           #
 # - provides an 'always floating' workspace, $ws4 for all floating apps       #
 # - customised i3lock to match GTK theme                                      #
 # - provides hotkey control for brightness and volume with backlight & pactl  #
 # - starts with a desktop background (configured manually with nitrogen)      #
+# - starts a startup script in workspace3 using xterm
 # - starts also with compton and xscreensaver (recommended)                   #
 #=============================================================================#
 # prerequisites (links provided as references):                               #
@@ -25,7 +26,7 @@
 set $mod Mod1   
 
 # Font for window titles. Will also be used by the bar unless a different font
-font pango:Source 8
+font pango:Source Sans Pro 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -92,6 +93,7 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -164,8 +166,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-hide_edge_borders both
-
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -174,12 +174,12 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $bg-color	        $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $bg-color	        $inactive-bg-color $inactive-text-color #00ff00
-client.urgent 		    $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.focused          $bg-color           $bg-color          $text-color          #ff49cd
+client.unfocused        $bg-color	        $inactive-bg-color $inactive-text-color #ff49cd
+client.focused_inactive $bg-color	        $inactive-bg-color $inactive-text-color #ff49cd
+client.urgent 		    $urgent-bg-color    $urgent-bg-color   $text-color          #ff49cd
 
-hide_edge_borders both
+hide_edge_borders smart
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -189,41 +189,44 @@ bar {
 		background $bg-color
 	    	separator #757575
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
 
 # System Hotkey control
+# - Brightness Control
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
+# - Audio Control
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle 
-
+# - i3lock Control
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
-# Auto load Applications
-exec gnome-terminal -e 'sup.sh' 
-exec gnome-terminal -e 'cmatrix -bC cyan'
-
+# Auto load Applications (tackle i3's non-determinism)
+# - Workspace 1
+exec gnome-terminal -- bash
+exec "sh -c 'sleep 0.1; exec i3-msg split h'"
+exec "sh -c 'sleep 0.5; exec gnome-terminal -- cmatrix -bC cyan'"
+exec "sh -c 'sleep 0.9; exec i3-msg split v'"
+exec "sh -c 'sleep 1.5; exec gnome-terminal -- zsh '"
+# - Workspace 2
 exec firefox
 assign [class="Firefox"] $ws2
-
+# - Workspace 4
 exec nautilus
 assign [class="Nautilus"] $ws4
 for_window [class="Nautilus"] floating toggle
 for_window [workspace="4"] floating enable
-
-# exec thunderbird
-# assign [class="Thunderbird"] $ws9
-
+# - Workspace 10
 exec spotify
 for_window [class="Spotify"] move to workspace $ws10
 
 # Start wallpaper and animation engines
-exec_always --no-startup-id xscreensaver -nosplash
 exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id xscreensaver -nosplash
 exec_always compton --config /etc/xdg/compton.conf
+exec --no-startup-id xterm -fa 'source' -e 'startup.sh' 
+assign [class="XTerm"] $ws4
