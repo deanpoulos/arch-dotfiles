@@ -19,9 +19,9 @@
 
 # Define colour scheme & formatting options (PS1-friendly & echo-friendly)
   BASE="\[\e[00;38;5;163m\]";   EBASE="\e[00;38;5;163m";  
- LBASE="\[\e[00;38;5;169m\]";  ELBASE="\e[00;38;5;169m";
+ LBASE="\[\e[00;38;5;211m\]";  ELBASE="\e[00;38;5;211m";
 ACCENT="\[\e[00;38;5;247m\]"; EACCENT="\e[00;38;5;247m"; 
-  ROOT="\[\e[00;38;5;218m\]";   EROOT="\e[00;38;5;218m";
+  ROOT="\[\e[00;38;5;224m\]";   EROOT="\e[00;38;5;224m";
  CLEAR="\[\e[m\]";             ECLEAR="\e[m";
                                EERROR="\e[91;01m";
 
@@ -32,9 +32,10 @@ SMALL="\x1B[8;24;80t";
  WIDE="\x1B[8;24;132t";
 
 alias vim="sudo -E vim"    
+alias cl="clear; motd"
 
 export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~ 
-export PS1+="$ACCENT\d $BASE$"                      # Mon May 28 $> 
+export PS1+="$ACCENT\t $BASE$"                                 # > 
 export PS1+="$LBASE>$CLEAR "   
 
 motd    () { clear; screenfetch; }; motd; # motd with screenfetch 
@@ -45,7 +46,6 @@ xcompile() { x86_64-w64-mingw32-gcc -Wall -Werror -O -std=c99 -o "$1" "$2"; }
 w       () { cse; cd $COMP/labs/week$1; }
 ass     () { cse; cd $COMP/assignments; }
 
-cl      () { motd; }
 lg      () { exit; logout; }
 
 tsize   () {
@@ -64,6 +64,8 @@ conf    () {
     elif    [ $1 = i3status ];  then vim /etc/i3status.conf
     elif    [ $1 = compton ];   then vim /etc/xdg/compton.conf
     elif    [ $1 = pacman ];    then vim /etc/pacman.conf
+    elif    [ $1 = zsh ];       then vim ~/.zshrc
+    elif    [ $1 = rslsync ];   then vim ~/.config/rslsync/rslsync.conf
     else    echo -e $EERROR"Please enter the name of a valid service"$ECLEAR
     fi
 }
@@ -90,9 +92,11 @@ cse     () {
     } && cd /cse;   
 }
 
-g2      () { 
+g2  ()  {
     if      [ $1 = gh ];    then cd ~/GitHub/configs; 
     elif    [ $1 = dl ];    then cd ~/Downloads;
     elif    [ $1 = pg ];    then cd ~/Programs;
+    elif    [ $1 = vm ];    then cd ~/.vim/;
+    else    echo -e $EERROR"Please enter a valid directory shortcut"$ECLEAR
     fi
 }
