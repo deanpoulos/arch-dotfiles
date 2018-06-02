@@ -26,7 +26,9 @@ configuration to be identical to mine:
 
  This way your ~ directory has a file .bashrc which points to an inode also
  pointed to by git. This means you can place each config file in their
- respective directories and update all at once.
+ respective directories and update all at once. Dotfile management will then
+ occur all in the git clone directory while the scattered hard-links are reached
+ by their respective packages.
 
 # Screenshots:
 ![ws1](https://user-images.githubusercontent.com/38335668/40662198-009f5830-6399-11e8-95f6-573535e5bc6a.jpg)
