@@ -1,7 +1,8 @@
 # Contents
 
 Configuration files created as accessories to various tools:
- - .bashrc (many terminal emulators, i.e. gnome-terminal, xterm)
+ - .bashrc (terminal emulators running bash, i.e. gnome-terminal, xterm)
+ - .zshrc (terminal emulators running zsh)
  - .vimrc  (vim text editor)
  - i3 config (window manager)
  - compton config (animation handler for i3)
