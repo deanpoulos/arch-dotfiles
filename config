@@ -112,11 +112,12 @@ set $ws10 "10   "
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
+bindsym $mod+4 workspace $ws4;
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+# Switch to $ws9 to execute thunderbird. If its already open, restart it
 bindsym $mod+9 workspace $ws9; exec "sh -c 'killall thunderbird; sleep 1; exec thunderbird'"
 bindsym $mod+0 workspace $ws10
 
@@ -208,18 +209,19 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 # Auto load Applications (tackle i3's non-determinism)
 # - Workspace 1
 exec gnome-terminal -- bash
-exec "sh -c 'sleep 0.1; exec i3-msg split h'"
-exec "sh -c 'sleep 0.5; exec gnome-terminal -- cmatrix -bC cyan'"
-exec "sh -c 'sleep 0.9; exec i3-msg split v'"
-exec "sh -c 'sleep 1.5; exec gnome-terminal -- zsh '"
+exec "sh -c 'sleep 1.1; exec i3-msg split h'"
+exec "sh -c 'sleep 1.5; exec gnome-terminal -- cmatrix -bC cyan'"
+exec "sh -c 'sleep 1.9; exec i3-msg split v'"
+exec "sh -c 'sleep 2.5; exec gnome-terminal -- zsh'" 
 # - Workspace 2
 exec firefox
 assign [class="Firefox"] $ws2
 # - Workspace 4
-exec nautilus
+exec_always nautilus
 assign [class="Nautilus"] $ws4
 for_window [class="Nautilus"] floating toggle
 for_window [workspace="4"] floating enable
+# for_window [class="Nautilus"] sticky toggle
 # - Workspace 10
 exec spotify
 for_window [class="Spotify"] move to workspace $ws10
@@ -233,8 +235,7 @@ exec_always --no-startup-id xscreensaver -nosplash
 # - Animation/Transition tool
 exec_always compton --config /etc/xdg/compton.conf
 # - Clock Synchronisation & Windows Partition Mounting
-exec --no-startup-id xterm -fa 'source' -e 'startup.sh' 
-assign [class="XTerm"] $ws4
+exec --no-startup-id "sh -c 'startup.sh'"
 
 # Standard Floating Applications
 for_window [class="Gpick"] floating enable
