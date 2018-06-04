@@ -8,7 +8,7 @@
 # - customised i3lock to match GTK theme                                      #
 # - provides hotkey control for brightness and volume with backlight & pactl  #
 # - starts with a desktop background (configured manually with nitrogen)      #
-# - starts a startup script in workspace3 using xterm
+# - starts a startup script for arch; clock sync and partition mounting       #
 # - starts also with compton and xscreensaver (recommended)                   #
 #=============================================================================#
 # prerequisites (links provided as references):                               #
@@ -117,7 +117,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
+bindsym $mod+9 workspace $ws9; exec "sh -c 'killall thunderbird; sleep 1; exec thunderbird'"
 bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
@@ -225,8 +225,16 @@ exec spotify
 for_window [class="Spotify"] move to workspace $ws10
 
 # Start wallpaper and animation engines
+# - Wallpaper Engine
 exec_always --no-startup-id nitrogen --restore
+# - Screensaver Tool
+for_window [class="Xscreensaver-demo"] floating enable
 exec_always --no-startup-id xscreensaver -nosplash
+# - Animation/Transition tool
 exec_always compton --config /etc/xdg/compton.conf
+# - Clock Synchronisation & Windows Partition Mounting
 exec --no-startup-id xterm -fa 'source' -e 'startup.sh' 
 assign [class="XTerm"] $ws4
+
+# Standard Floating Applications
+for_window [class="Gpick"] floating enable
