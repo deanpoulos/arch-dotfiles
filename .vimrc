@@ -25,6 +25,7 @@ call vundle#begin()
     Plugin 'hardmode'
     Plugin 'fzf.vim'
     Plugin 'vim-surround'
+    Plugin 'dracula/vim'
 call vundle#end()
 
 filetype plugin indent on
