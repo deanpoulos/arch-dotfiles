@@ -15,7 +15,7 @@ ZSH_THEME="random"
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
-ZSH_THEME_RANDOM_CANDIDATES=( "superjarin" "minimal" "edvardm" )
+ZSH_THEME_RANDOM_CANDIDATES=( "superjarin" "minimal" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,7 +71,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="sudo -E vim"    
 alias cl="clear"
 
-# clear
+clear
 
 compile () { gcc -ggdb -Wall -Werror -O -std=c99 -o "$1" "$2"; }
 xcompile() { x86_64-w64-mingw32-gcc -Wall -Werror -O -std=c99 -o "$1" "$2"; }
