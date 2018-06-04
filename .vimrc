@@ -9,7 +9,7 @@
 " - vundle plugin/runtime path handler                                        "
 " - relative line number                                                      "
 "============================================================================="
-" prerequisites:                                                              "
+" prerequisites (to install, use :PluginInstall within vim):                  "
 " - PaperColor theme: https://github.com/NLKNguyen/papercolor-theme           "
 " - Vundle:           https://github.com/VundleVim                            "
 " - HardMode:         https://github.com/wikitopian/hardmode                  "
