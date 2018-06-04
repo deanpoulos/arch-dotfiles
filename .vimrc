@@ -31,7 +31,7 @@ call vundle#end()
 filetype plugin indent on
 
 " hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" - autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " create new line under cursor in normal mode
