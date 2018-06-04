@@ -11,7 +11,7 @@
 # - directory traversal:    traverse lab/assignment dirs    w <#>, ass, g2    #
 #=============================================================================#
 # prerequisites:                                                              #
-# - screenfetch:            used to print hardware/software specs in `motd`   # 
+# - neofetch:            used to print hardware/software specs in `motd`      # 
 # - x86_64-w64-mingw32-gcc: used for compiling c as a .exe file in `xcompile` #
 # - ssh & sshfs:            used for mounting cse account locally in `cse`    #
 #                           assumes directory /cse exists for mounting        #    
@@ -32,13 +32,21 @@ SMALL="\x1B[8;24;80t";
  WIDE="\x1B[8;24;132t";
 
 alias vim="sudo -E vim"    
-alias cl="clear; motd"
+alias cl="motd"
 
 export PS1="$BASE[ $ROOT\u@\h$BASE ] $LBASE\W\n"    # [ dean@Arch-Dean ] ~ 
-export PS1+="$ACCENT\t $BASE$"                                 # > 
+export PS1+="$ACCENT\t $BASE$"                      # 06:06:06 $> 
 export PS1+="$LBASE>$CLEAR "   
 
-motd    () { clear; screenfetch; }; motd; # motd with screenfetch 
+motd    () { clear; echo -e '\n';  
+                    neofetch    --ascii_colors 212 96 0 0 0 0 \
+                                --colors 212 96 96 212 96 231 \
+                                --disk_display infobar \
+                                --ascii_bold off \
+                                --memory_display barinfo \
+                                --cpu_display bar \
+                                --color_blocks on \
+                                --bar_colors 231 212; }; motd; # motd with neofetch 
 
 compile () { gcc -ggdb -Wall -Werror -O -std=c99 -o "$1" "$2"; }
 xcompile() { x86_64-w64-mingw32-gcc -Wall -Werror -O -std=c99 -o "$1" "$2"; }
